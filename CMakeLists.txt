@@ -7,3 +7,15 @@ add_library(
 
   src/say.cpp
   )
+
+add_executable(
+  HelloWorld
+
+  src/HelloWorld
+  )
+
+target_link_libraries(
+  HelloWorld
+
+  SayHello
+  )
