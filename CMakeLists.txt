@@ -28,16 +28,20 @@ target_link_libraries(
   SayHello
   )
 
-add_executable(
+# Adds a test with no arguments named ${test}. Variable traling
+# arguments hold sources for executable
+macro( Hello_add_test test )
+  add_executable( ${test} ${ARGN} )
+  add_test( ${test} ${test} )
+  target_link_libraries(
+      ${test}
+
+      SayHello
+  )
+endmacro()
+
+Hello_add_test(
   TestSay
 
   src/tests/TestSay.cpp
-  )
-
-target_link_libraries(
-  TestSay
-
-  SayHello
-  )
-
-add_test( TestSay TestSay)
+)
