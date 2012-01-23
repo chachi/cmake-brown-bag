@@ -28,6 +28,12 @@ target_link_libraries(
   SayStuff
   )
 
+add_custom_target(
+  run_tests
+
+  COMMAND make test
+  )
+
 # Adds a test with no arguments named ${test}. Variable traling
 # arguments hold sources for executable
 macro( Hello_add_test test )
@@ -38,6 +44,7 @@ macro( Hello_add_test test )
 
       SayStuff
   )
+  add_dependencies( run_tests ${test} )
 endmacro()
 
 Hello_add_test(
