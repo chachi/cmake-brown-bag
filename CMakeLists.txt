@@ -4,6 +4,12 @@ cmake_minimum_required(VERSION 2.8.3)
 
 enable_testing()
 
+find_package( Boost REQUIRED )
+
+if(Boost_FOUND)
+  include_directories(${Boost_INCLUDE_DIRS})
+endif()
+
 add_library(
   SayHello
 
