@@ -10,11 +10,25 @@ if(Boost_FOUND)
   include_directories(${Boost_INCLUDE_DIRS})
 endif()
 
+include_directories( ${CMAKE_CURRENT_BINARY_DIR} )
+
 add_library(
   SayStuff
 
   src/say.cpp
   )
+
+# Add autoconfigured header for HelloWorld program
+option(
+    SHOULD_REPEAT 
+    "Whether HelloWorld should accept a repeat argument" 
+    ON )
+set( StringToSay "again" )
+
+configure_file( 
+    src/SayString.h.in 
+    ${CMAKE_CURRENT_BINARY_DIR}/SayString.h
+    )
 
 add_executable(
   HelloWorld

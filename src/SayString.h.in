@@ -1,0 +1,8 @@
+#ifndef _SAYSTRING_H_
+#define _SAYSTRING_H_
+
+#define STRING_TO_SAY std::string("${StringToSay}")
+
+#cmakedefine SHOULD_REPEAT
+
+#endif /* _SAYSTRING.H_H_ */
