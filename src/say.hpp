@@ -6,6 +6,7 @@
 namespace mitre {
 
 void sayHello(std::ostream& os, const std::string& s);
+void sayGoodbye(std::ostream& os, const std::string& s);
 
 }
 

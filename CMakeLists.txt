@@ -1,5 +1,5 @@
 
-project(SayHello)
+project(SayStuff)
 cmake_minimum_required(VERSION 2.8.3)
 
 enable_testing()
@@ -11,7 +11,7 @@ if(Boost_FOUND)
 endif()
 
 add_library(
-  SayHello
+  SayStuff
 
   src/say.cpp
   )
@@ -25,7 +25,7 @@ add_executable(
 target_link_libraries(
   HelloWorld
 
-  SayHello
+  SayStuff
   )
 
 # Adds a test with no arguments named ${test}. Variable traling
@@ -36,7 +36,7 @@ macro( Hello_add_test test )
   target_link_libraries(
       ${test}
 
-      SayHello
+      SayStuff
   )
 endmacro()
 
@@ -44,4 +44,10 @@ Hello_add_test(
   TestSay
 
   src/tests/TestSay.cpp
+)
+
+Hello_add_test(
+  TestGoodbye
+
+  src/tests/TestGoodbye.cpp
 )
